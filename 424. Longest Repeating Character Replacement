@@ -1,0 +1,27 @@
+// you can also use int[] count = new count[26]
+// it will take ACCSSI value so dont have to use hashMap and you can save space.
+
+class Solution {
+    public int characterReplacement(String s, int k) {
+        int max = 0;
+
+    for(int i = 0; i < s.length(); i++) {
+     HashMap<Character,Integer>map = new HashMap<>();
+     int maxC = 0;
+     for(int j = i; j < s.length(); j++) {
+        char c = s.charAt(j);
+     map.put(c, map.getOrDefault(c,0) +1);
+        
+        maxC = Math.max(maxC, map.get(c));
+            int length = j-i+1;
+            if(length - maxC >  k){
+                break;
+            }
+         max = Math.max(max,j-i+1);
+        }
+        }
+        return max;
+
+        
+    }
+}
